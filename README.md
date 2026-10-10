@@ -90,13 +90,13 @@ Everything stays on `127.0.0.1`. No telemetry, no proxy, no third party servers.
 
 | | Site | Model id in OpenCode | Address |
 |:-:|---|---|---|
-| 💬 | **ChatGPT** | `noapi/chatgpt` | chatgpt.com |
-| 🟠 | **Claude** | `noapi/claude` | claude.ai |
-| ✨ | **Gemini** | `noapi/gemini` | gemini.google.com |
-| 🐋 | **DeepSeek** | `noapi/deepseek` | chat.deepseek.com |
-| 🔎 | **Perplexity** | `noapi/perplexity` | perplexity.ai |
-| ⚡ | **Grok** | `noapi/grok` | grok.com |
-| 🌬️ | **Mistral** | `noapi/mistral` | chat.mistral.ai |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://cdn.simpleicons.org/openai/white"><img src="https://cdn.simpleicons.org/openai" alt="💬" width="24" height="24"></picture> | **ChatGPT** | `noapi/chatgpt` | chatgpt.com |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://cdn.simpleicons.org/claude/white"><img src="https://cdn.simpleicons.org/claude" alt="🟠" width="24" height="24"></picture> | **Claude** | `noapi/claude` | claude.ai |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://cdn.simpleicons.org/googlegemini/white"><img src="https://cdn.simpleicons.org/googlegemini" alt="✨" width="24" height="24"></picture> | **Gemini** | `noapi/gemini` | gemini.google.com |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://cdn.simpleicons.org/deepseek/white"><img src="https://cdn.simpleicons.org/deepseek" alt="🐋" width="24" height="24"></picture> | **DeepSeek** | `noapi/deepseek` | chat.deepseek.com |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://cdn.simpleicons.org/perplexity/white"><img src="https://cdn.simpleicons.org/perplexity" alt="🔎" width="24" height="24"></picture> | **Perplexity** | `noapi/perplexity` | perplexity.ai |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://cdn.simpleicons.org/xai/white"><img src="https://cdn.simpleicons.org/xai" alt="⚡" width="24" height="24"></picture> | **Grok** | `noapi/grok` | grok.com |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://cdn.simpleicons.org/mistralai/white"><img src="https://cdn.simpleicons.org/mistralai" alt="🌬️" width="24" height="24"></picture> | **Mistral** | `noapi/mistral` | chat.mistral.ai |
 
 You need to be logged in, and the site has to be open in a tab. If you open several, each one can serve its own model.
 
