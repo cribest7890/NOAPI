@@ -1,0 +1,51 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "noapi": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "NOAPI? (browser bridge)",
+      "options": {
+        "baseURL": "http://127.0.0.1:8787/v1",
+        "apiKey": "noapi-local"
+      },
+      "models": {
+        "chatgpt": {
+          "name": "ChatGPT via browser (no API)",
+          "limit": { "context": 128000, "output": 8192 }
+        },
+        "claude": {
+          "name": "Claude via browser (no API)",
+          "limit": { "context": 200000, "output": 8192 }
+        },
+        "gemini": {
+          "name": "Gemini via browser (no API)",
+          "limit": { "context": 1000000, "output": 8192 }
+        },
+        "deepseek": {
+          "name": "DeepSeek via browser (no API)",
+          "limit": { "context": 128000, "output": 8192 }
+        },
+        "perplexity": {
+          "name": "Perplexity via browser (no API)",
+          "limit": { "context": 100000, "output": 8192 }
+        },
+        "grok": {
+          "name": "Grok via browser (no API)",
+          "limit": { "context": 128000, "output": 8192 }
+        },
+        "mistral": {
+          "name": "Mistral via browser (no API)",
+          "limit": { "context": 128000, "output": 8192 }
+        }
+      }
+    }
+  },
+  "mcp": {
+    "noapi": {
+      "type": "local",
+      "command": ["node", "bridge/index.js", "--mcp"],
+      "enabled": true,
+      "timeout": 30000
+    }
+  }
+}

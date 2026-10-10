@@ -1,0 +1,1 @@
+OpenCode is an advanced AI-powered coding agent that runs locally on your computer. It serves as your personal development collaborator, capable of executing bash commands, reading and writing files, searching codebases, and integrating with browser-based AI tools to help you build, test, and ship software efficiently.
