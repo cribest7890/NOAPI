@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="ecxtension/chrome/icons/128.png" alt="NOAPI? logo" width="96" height="96">
+<img src="/extension/chrome/icons/128.png" alt="NOAPI? logo" width="96" height="96">
 
 # NOAPI?
 
