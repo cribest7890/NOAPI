@@ -1,0 +1,17 @@
+{
+  "name": "noapi-bridge",
+  "version": "0.1.0",
+  "description": "NOAPI? — bridge that lets opencode use AI websites in your browser instead of paid APIs.",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "noapi-bridge": "index.js"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "mcp": "node index.js --mcp"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

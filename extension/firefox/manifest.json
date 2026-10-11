@@ -1,0 +1,63 @@
+{
+  "manifest_version": 3,
+  "name": "NOAPI? — browser bridge for opencode",
+  "version": "0.1.0",
+  "description": "Lets local tools (opencode) use your logged-in AI websites (ChatGPT, Claude, Gemini, …) without API keys, via a local bridge on 127.0.0.1.",
+  "permissions": [
+    "storage",
+    "http://127.0.0.1/*",
+    "http://localhost/*",
+    "https://*.chatgpt.com/*",
+    "https://*.openai.com/*",
+    "https://*.claude.ai/*",
+    "https://*.google.com/*",
+    "https://*.perplexity.ai/*",
+    "https://*.grok.com/*",
+    "https://*.mistral.ai/*",
+    "https://*.deepseek.com/*"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "action": {
+    "default_title": "NOAPI? bridge",
+    "default_icon": {
+      "16": "icons/16.png",
+      "48": "icons/48.png",
+      "128": "icons/128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "noapi@bridge.local",
+      "strict_min_version": "115.0"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chatgpt.com/*",
+        "https://*.chatgpt.com/*",
+        "https://chat.openai.com/*",
+        "https://claude.ai/*",
+        "https://*.claude.ai/*",
+        "https://gemini.google.com/*",
+        "https://www.perplexity.ai/*",
+        "https://perplexity.ai/*",
+        "https://grok.com/*",
+        "https://*.grok.com/*",
+        "https://chat.mistral.ai/*",
+        "https://*.mistral.ai/*",
+        "https://chat.deepseek.com/*",
+        "https://*.deepseek.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

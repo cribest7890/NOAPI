@@ -1,0 +1,13 @@
+{
+  "name": "noapi",
+  "version": "0.1.0",
+  "description": "Use AI models in OpenCode without APIs by using your browser and an MCP bridge",
+  "type": "module",
+  "scripts": {
+    "start": "node bridge/index.js",
+    "mcp": "node bridge/index.js --mcp",
+    "test": "node tools/test-all.js && node tools/test-tools.js",
+    "icons": "node tools/make-icons.js",
+    "install-global": "node tools/install-global.js"
+  }
+}

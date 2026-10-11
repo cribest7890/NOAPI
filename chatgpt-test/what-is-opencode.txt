@@ -1,0 +1,27 @@
+What Is OpenCode?
+
+OpenCode is an open-source AI coding agent that helps developers write, understand, debug, and modify code. It can work with your local project files and use tools to perform coding tasks directly on your computer.
+
+What Can OpenCode Do?
+
+- Create, read, and edit files.
+- Create folders and organize project files.
+- Write and modify code in different programming languages.
+- Find and fix bugs.
+- Run terminal commands and tests.
+- Explain existing code and help you understand how a project works.
+- Use AI models to plan and complete coding tasks.
+
+How Does It Work?
+
+You give OpenCode instructions in natural language, such as "Create a Python script" or "Fix the error in this project." The AI agent analyzes the task and can request tools to inspect files, make changes, and run commands. It then reports the results to you.
+
+OpenCode can connect to different AI models and providers, depending on your configuration. Its capabilities depend on the tools, permissions, and models available in your setup.
+
+Why Use OpenCode?
+
+OpenCode can automate repetitive coding work, speed up development, help beginners learn programming, and assist experienced developers with complex projects. Because it can interact with your local files and terminal, you should review important changes and be careful when allowing commands that modify or delete data.
+
+In Short
+
+OpenCode is an AI-powered coding assistant that works with your development environment to help you build, understand, and maintain software.

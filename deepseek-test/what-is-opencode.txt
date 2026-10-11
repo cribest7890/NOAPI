@@ -1,0 +1,38 @@
+What is OpenCode?
+=================
+
+OpenCode is an open-source, terminal-based AI coding agent. It runs locally on your
+computer and acts as an autonomous assistant that can understand, navigate, and modify
+your codebase on your behalf.
+
+At its core, OpenCode connects a large language model (the "brain") to a set of tools
+(the "hands") that operate on your machine. Rather than just chatting, it can actually
+do things:
+
+  - Read and search files across a project
+  - Create, edit, and delete files
+  - Run shell commands, build scripts, and tests
+  - Fetch web content and query APIs
+  - Launch specialized sub-agents for complex, multi-step tasks
+
+How it works
+------------
+You give OpenCode a task in natural language (for example, "add a login form" or
+"fix the failing test"). The language model reasons about the task, then requests
+tool calls. OpenCode executes those tools in a persistent shell session, feeds the
+results back to the model, and repeats this loop until the task is complete.
+
+This "agentic loop" lets OpenCode handle multi-step work: exploring a codebase,
+planning changes, applying edits, running tests, and iterating on failures -- all
+with minimal hand-holding.
+
+Key characteristics
+-------------------
+  - Terminal-native: lives where developers already work.
+  - Provider-agnostic: can be paired with different AI models/backends.
+  - Tool-driven: its power comes from the tools it can invoke, not just chat.
+  - Transparent: you see every command and edit it performs.
+  - Local: operates directly on your files and environment.
+
+In short, OpenCode is like giving a capable AI assistant direct access to your
+developer machine, with guardrails and visibility into everything it does.
