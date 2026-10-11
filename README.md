@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="/extension/chrome/icons/128.png" alt="NOAPI? logo" width="96" height="96">
+<img src="extension/chrome/icons/128.png" alt="NOAPI? logo" width="96" height="96">
 
 # NOAPI?
 
@@ -31,9 +31,9 @@ Your browser is already logged in. NOAPI? just lets OpenCode talk to it.
 
 ## 💡 Why this exists
 
-API access costs money, and a lot of us already pay for a chat subscription that we barely squeeze the value out of. NOAPI? connects the two. OpenCode sends a prompt, a small browser extension typ[...]
+API access costs money, and a lot of us already pay for a chat subscription that we barely squeeze the value out of. NOAPI? connects the two. OpenCode sends a prompt, a small browser extension types it into the real chat page you have open, waits for the answer, and hands it back.
 
-It is not magic and it is not an official integration. It is a careful bit of plumbing that works well enough that you can run a real coding agent on top of it, including file edits and shell comm[...]
+It is not magic and it is not an official integration. It is a careful bit of plumbing that works well enough that you can run a real coding agent on top of it, including file edits and shell commands.
 
 <br>
 
@@ -89,14 +89,14 @@ Everything stays on `127.0.0.1`. No telemetry, no proxy, no third party servers.
 ## 🌐 Supported sites
 
 | | Site | Model id in OpenCode | Address |
-| |:-:|---|---|
-| | <picture><source media="(prefers-color-scheme: dark)" srcset="https://cdn.simpleicons.org/openai/white"><img src="https://cdn.simpleicons.org/openai" alt="💬" width="24" height="24"></picture>[...] | **ChatGPT** | `chatgpt.com` |
-| | <picture><source media="(prefers-color-scheme: dark)" srcset="https://cdn.simpleicons.org/claude/white"><img src="https://cdn.simpleicons.org/claude" alt="🟠" width="24" height="24"></picture>[...] | **Claude** | `claude.ai` |
-| | <picture><source media="(prefers-color-scheme: dark)" srcset="https://cdn.simpleicons.org/googlegemini/white"><img src="https://cdn.simpleicons.org/googlegemini" alt="✨" width="24" height="24"></picture>[...] | **Gemini** | `gemini.google.com` |
-| | <picture><source media="(prefers-color-scheme: dark)" srcset="https://cdn.simpleicons.org/deepseek/white"><img src="https://cdn.simpleicons.org/deepseek" alt="🐋" width="24" height="24"></picture>[...] | **DeepSeek** | `chat.deepseek.com` |
-| | <picture><source media="(prefers-color-scheme: dark)" srcset="https://cdn.simpleicons.org/perplexity/white"><img src="https://cdn.simpleicons.org/perplexity" alt="🔎" width="24" height="24"></picture>[...] | **Perplexity** | `perplexity.ai` |
-| | <picture><source media="(prefers-color-scheme: dark)" srcset="https://cdn.simpleicons.org/xai/white"><img src="https://cdn.simpleicons.org/xai" alt="⚡" width="24" height="24"></picture>[...] | **Grok** | `x.ai` |
-| | <picture><source media="(prefers-color-scheme: dark)" srcset="https://cdn.simpleicons.org/mistralai/white"><img src="https://cdn.simpleicons.org/mistralai" alt="🌬️" width="24" height="24"></picture>[...] | **Mistral** | `chat.mistral.ai` |
+|:-:|---|---|---|
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://cdn.simpleicons.org/openai/white"><img src="https://cdn.simpleicons.org/openai" alt="💬" width="24" height="24"></picture> | **ChatGPT** | `noapi/chatgpt` | chatgpt.com |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://cdn.simpleicons.org/claude/white"><img src="https://cdn.simpleicons.org/claude" alt="🟠" width="24" height="24"></picture> | **Claude** | `noapi/claude` | claude.ai |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://cdn.simpleicons.org/googlegemini/white"><img src="https://cdn.simpleicons.org/googlegemini" alt="✨" width="24" height="24"></picture> | **Gemini** | `noapi/gemini` | gemini.google.com |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://cdn.simpleicons.org/deepseek/white"><img src="https://cdn.simpleicons.org/deepseek" alt="🐋" width="24" height="24"></picture> | **DeepSeek** | `noapi/deepseek` | chat.deepseek.com |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://cdn.simpleicons.org/perplexity/white"><img src="https://cdn.simpleicons.org/perplexity" alt="🔎" width="24" height="24"></picture> | **Perplexity** | `noapi/perplexity` | perplexity.ai |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://cdn.simpleicons.org/xai/white"><img src="https://cdn.simpleicons.org/xai" alt="⚡" width="24" height="24"></picture> | **Grok** | `noapi/grok` | grok.com |
+| <picture><source media="(prefers-color-scheme: dark)" srcset="https://cdn.simpleicons.org/mistralai/white"><img src="https://cdn.simpleicons.org/mistralai" alt="🌬️" width="24" height="24"></picture> | **Mistral** | `noapi/mistral` | chat.mistral.ai |
 
 You need to be logged in, and the site has to be open in a tab. If you open several, each one can serve its own model.
 
@@ -163,7 +163,7 @@ The `opencode.json` in this repo only applies when you launch OpenCode from this
 npm run install-global
 ```
 
-That adds the `noapi` provider and the MCP server to `~/.config/opencode/opencode.json`, using the absolute path of this folder. Your other settings are kept, and a backup is saved next to the file.
+That adds the `noapi` provider and the MCP server to `~/.config/opencode/opencode.json`, using the absolute path of this folder. Your other settings are kept, and a backup is saved next to the file as `opencode.json.bak`.
 
 Then, for each project:
 
@@ -301,7 +301,7 @@ The MCP server offers three tools: `chat` (ask a site), `status` and `sites`.
 | **Red dot on the `?` button** | The bridge is not running. Start it with `npm start`. |
 | **Port 8787 already in use** | Run `node bridge/index.js --port=8788` and change `baseURL` in your config to `:8788/v1`. |
 | **NOAPI? is missing from `/models`** | You are probably outside this folder. Run `npm run install-global` once. |
-| **Stuck at "Waiting for ... to answer"** | The site may have changed its layout. Open the `?` panel and read the last status line. The stall message includes a short technical summary you can parse. |
+| **Stuck at "Waiting for ... to answer"** | The site may have changed its layout. Open the `?` panel and read the last status line. The stall message includes a short technical summary you can paste into an issue. |
 | **The prompt gets typed but never sent** | The extension retries a few times on its own. If it keeps failing, the send button selector for that site probably needs an update. |
 | **It worked yesterday, today it does not** | Sites change their pages. See [Limitations](#-honest-limitations) and [Adding or fixing a site](#-adding-or-fixing-a-site). |
 | **Firefox lost the extension** | Temporary add-ons disappear on restart. Load it again from `about:debugging`. |
@@ -370,7 +370,7 @@ I would rather tell you now than have you find out later.
 - **Tool quality varies by model.** Tool use works through a text format the model has to follow. Strong models do it reliably, weaker ones occasionally slip.
 - **One conversation per site tab.** The website keeps the history, so a very long session may hit that site's own limits.
 - **Free plans have limits too.** The websites still apply their own message caps and rules.
-- **Terms of service.** Automating a website may go against that site's terms. This project is meant for personal use with your own account. You are responsible for how you use it, and it is not an official supported integration.
+- **Terms of service.** Automating a website may go against that site's terms. This project is meant for personal use with your own account. You are responsible for how you use it, and it is not affiliated with OpenAI, Anthropic, Google, DeepSeek, Perplexity, xAI, Mistral or OpenCode.
 
 <br>
 
