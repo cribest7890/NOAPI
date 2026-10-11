@@ -167,6 +167,13 @@ export function attachWebSocketServer(httpServer, handlers) {
       socket.destroy();
       return;
     }
+    if (handlers.verify && !handlers.verify(req)) {
+      try {
+        socket.write("HTTP/1.1 403 Forbidden\r\nConnection: close\r\nContent-Length: 0\r\n\r\n");
+      } catch {}
+      socket.destroy();
+      return;
+    }
     const accept = crypto
       .createHash("sha1")
       .update(key + GUID)

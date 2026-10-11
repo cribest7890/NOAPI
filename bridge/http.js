@@ -6,6 +6,7 @@
 //  - /                     human status dashboard
 import http from "node:http";
 import { SITES, SITE_KEYS } from "./sites.js";
+import { requestAllowed } from "./security.js";
 import { buildPrompt, parseToolCalls, toolList, toolsHash, isTitleRequest, localTitle } from "./toolproto.js";
 
 function readBody(req, limit = 5 * 1024 * 1024) {
@@ -30,7 +31,6 @@ function sendJson(res, code, obj) {
   const body = JSON.stringify(obj);
   res.writeHead(code, {
     "Content-Type": "application/json",
-    "Access-Control-Allow-Origin": "*",
   });
   res.end(body);
 }
@@ -116,14 +116,20 @@ setInterval(render, 2000);
 </html>`;
 }
 
-export function createHttpServer(bridge, log) {
+export function createHttpServer(bridge, log, { host: bindHost = "127.0.0.1" } = {}) {
   const server = http.createServer(async (req, res) => {
     const url = new URL(req.url, "http://127.0.0.1");
     const path = url.pathname;
     try {
+      if (!requestAllowed(req, bindHost)) {
+        log(`blocked request from origin "${req.headers.origin || "?"}" host "${req.headers.host || "?"}"`);
+        res.writeHead(403, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ error: { message: "Forbidden: this bridge only accepts local clients.", type: "forbidden" } }));
+        return;
+      }
       if (req.method === "OPTIONS") {
         res.writeHead(204, {
-          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Origin": req.headers.origin || "null",
           "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
           "Access-Control-Allow-Headers": "Content-Type, Authorization",
         });
@@ -212,7 +218,6 @@ export function createHttpServer(bridge, log) {
           "Content-Type": "text/event-stream",
           "Cache-Control": "no-cache",
           Connection: "keep-alive",
-          "Access-Control-Allow-Origin": "*",
         });
         const id = `chatcmpl-noapi-${Date.now().toString(36)}`;
         const created = Math.floor(Date.now() / 1000);

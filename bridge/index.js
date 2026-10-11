@@ -16,6 +16,7 @@
 import { Bridge } from "./state.js";
 import { createHttpServer } from "./http.js";
 import { attachWebSocketServer } from "./ws.js";
+import { requestAllowed } from "./security.js";
 import { runMcpStdio, ProxyGateway } from "./mcp.js";
 
 function parseArgs(argv) {
@@ -57,7 +58,7 @@ async function main() {
   let server = null;
   try {
     const b = new Bridge({ log });
-    server = createHttpServer(b, log);
+    server = createHttpServer(b, log, { host: args.host });
     function handleProxyMessage(conn, msg) {
       if (msg.t === "proxy-status") {
         conn.send(JSON.stringify({ t: "proxy-status-response", id: msg.id, data: b.status() }));
@@ -82,6 +83,11 @@ async function main() {
     }
 
     attachWebSocketServer(server, {
+      verify: (req) => {
+        const ok = requestAllowed(req, args.host);
+        if (!ok) log(`blocked websocket from origin "${req.headers.origin || "?"}"`);
+        return ok;
+      },
       onOpen: (conn) => {
         conn.helloTimer = setTimeout(() => {
           if (!b.clients.has(conn) && !conn.isProxy) {
