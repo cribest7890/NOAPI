@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Node ${{ matrix.node }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [18, 20, 22]
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Check syntax of every script
+        run: |
+          for f in bridge/*.js extension/chrome/*.js extension/firefox/*.js tools/*.js; do
+            node --check "$f"
+          done
+
+      - name: Check that both browsers use the same content script
+        run: diff -q extension/chrome/content.js extension/firefox/content.js
+
+      - name: Run the tests
+        run: npm test
