@@ -1,0 +1,36 @@
+name: ✨ Feature request
+description: Suggest an idea or an improvement
+title: "[Idea] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ideas are welcome. A few things shape what fits this project: **zero dependencies**, **local only**, and **automatic by default**. Details are in [CONTRIBUTING.md](../blob/main/CONTRIBUTING.md#-suggesting-a-feature).
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem are you trying to solve?
+      description: Tell us about the situation, not only the solution you have in mind.
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like to see?
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Anything else you considered?
+  - type: dropdown
+    id: help
+    attributes:
+      label: Would you like to build it?
+      options:
+        - "Yes, I would like to send a pull request"
+        - "Maybe, with some guidance"
+        - "No, I am only suggesting it"
+    validations:
+      required: true

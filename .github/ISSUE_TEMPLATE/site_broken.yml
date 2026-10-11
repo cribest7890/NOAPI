@@ -1,0 +1,73 @@
+name: 🌐 Site broken
+description: A supported website changed and NOAPI? can no longer type, send or read replies there
+title: "[Site] "
+labels: ["site-broken", "help wanted"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Websites change their pages without warning, so this happens now and then. If you feel like fixing it yourself, the steps are in [CONTRIBUTING.md](../blob/main/CONTRIBUTING.md#-fixing-or-adding-a-site). Pull requests are very welcome.
+  - type: dropdown
+    id: site
+    attributes:
+      label: Which site?
+      options:
+        - ChatGPT
+        - Claude
+        - Gemini
+        - DeepSeek
+        - Perplexity
+        - Grok
+        - Mistral
+    validations:
+      required: true
+  - type: dropdown
+    id: step
+    attributes:
+      label: Where does it fail?
+      options:
+        - The chat box is not found
+        - The prompt is typed but never sent
+        - The wrong button gets clicked
+        - The reply is never detected
+        - The reply is cut off or contains extra text
+        - Something else
+    validations:
+      required: true
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser
+      options:
+        - Chrome
+        - Edge
+        - Brave
+        - Opera
+        - Arc
+        - Firefox
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: What do you see?
+      description: Describe it, and paste the last status line from the `?` panel or from OpenCode.
+    validations:
+      required: true
+  - type: textarea
+    id: html
+    attributes:
+      label: HTML of the element (optional but very helpful)
+      description: |
+        Right click the element (chat box, send button, stop button or a reply), choose **Inspect**, then right click the highlighted line and choose **Copy > Copy outerHTML**. Remove anything private first.
+      render: html
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before sending
+      options:
+        - label: I reloaded the extension and refreshed the AI tab
+          required: true
+        - label: I am logged in on that site and the chat page is fully loaded
+          required: true

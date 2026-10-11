@@ -1,0 +1,94 @@
+name: 🐛 Bug report
+description: Something in NOAPI? does not work as expected
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time. A good report gets fixed much faster.
+
+        **Security problem?** Please do not use this form. Follow [SECURITY.md](../blob/main/SECURITY.md) instead.
+        **A website stopped working** (typing, sending or reading the reply)? The "Site broken" form fits that better.
+  - type: dropdown
+    id: site
+    attributes:
+      label: Which site were you using?
+      options:
+        - ChatGPT
+        - Claude
+        - Gemini
+        - DeepSeek
+        - Perplexity
+        - Grok
+        - Mistral
+        - Not related to a site
+    validations:
+      required: true
+  - type: dropdown
+    id: browser
+    attributes:
+      label: Browser
+      options:
+        - Chrome
+        - Edge
+        - Brave
+        - Opera
+        - Arc
+        - Firefox
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: system
+    attributes:
+      label: Operating system and Node.js version
+      description: "For example: Windows 11, Node 20.11. You can get the Node version with `node -v`."
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Tell us what you did and what you saw.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect instead?
+    validations:
+      required: true
+  - type: textarea
+    id: status-lines
+    attributes:
+      label: Status lines
+      description: |
+        The lines OpenCode showed while it was working (for example "Typing prompt into DeepSeek...", "Waiting for ... to answer..."), or the last line in the `?` panel on the page.
+        If it stalled, that line contains a short technical summary, which is very useful.
+      render: text
+  - type: textarea
+    id: bridge-log
+    attributes:
+      label: Bridge log
+      description: What `npm start` printed in the terminal around the time of the problem.
+      render: text
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: How often does it happen?
+      options:
+        - Every time
+        - Sometimes
+        - Only once so far
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before sending
+      options:
+        - label: I reloaded the extension and refreshed the AI tab after updating
+          required: true
+        - label: I removed anything private from the logs and screenshots
+          required: true
