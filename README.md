@@ -16,6 +16,7 @@ Your browser is already logged in. NOAPI? just lets OpenCode talk to it.
 <img alt="Manifest V3" src="https://img.shields.io/badge/extension-Manifest%20V3-orange">
 <img alt="Local only" src="https://img.shields.io/badge/network-127.0.0.1%20only-informational">
 <img alt="MIT License" src="https://img.shields.io/badge/license-MIT-blue">
+<a href="https://github.com/cribest7890/NOAPI/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/cribest7890/NOAPI/actions/workflows/ci.yml/badge.svg"></a>
 
 <br>
 
